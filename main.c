@@ -11,17 +11,15 @@ int main(int argc, char **argv, char **environ)
 {
 	char *line_input;
 	char *del;
-	int i = 0;
-	/**
-	char **tokens_array;
-	char *com;*/
+	char **path;
+	char *com;
+	char *pdel;
 
-/**
-	tokens_array = find_path(environ);
+	pdel = ":";
+	path = path_finder(pdel, environ);
 	signal(SIGINT, SIG_IGN);
-*/
+
 	(void)argc;
-	(void)environ;
 	del = " \t\r\n";
 	line_input = NULL;
 	do {
@@ -31,20 +29,16 @@ int main(int argc, char **argv, char **environ)
 		line_input = readinput();
 
 		argv = token(del, line_input);
-		for (i = 0; argv[i] != NULL; i++)
-		{ 
-		printf("%s\n", argv[i]);
-		}
-		/**com = args_path(argv, tokens_array);
+		com = arg_path_finder(argv, path);
 
 		if (com == NULL)
 		{
-			execute(argv);
-		} */
+		_exec(argv);
+		}
 		free(line_input);
 		free(argv);
-		/**
-		free(com); */
+		free(com);
 	} while (1);
+
 	return (0);
 }
