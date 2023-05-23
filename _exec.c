@@ -6,26 +6,43 @@
  * Return: returns 0 on success
  */
 
-int _exec(char **parse)
+void _exec(char **parse)
 {
-	pid_t pid;
-	int status;
-
-	pid = fork();
-	if (pid == 0)
+	pid_t pi;
+	int i, m;
+	int x, status;
+	struct b bs[] = {
+		{"cd", _changedir},
+		{"exit", _e_xit},
+		{"help", _help},
+		};
+	
+	m = _builtins();
+	for (i = 0; i < m; i++) 
 	{
-		if (execve(parse[0], parse, NULL) == -1)
-		{
-			perror(parse[0]);
-			exit(1);
-		}
-	}
-	else if (pid > 0)
+	x = _strcmp(parse[0], bs[i].name);
+	if (x == 0) 
 	{
-		wait(&status);
+	bs[i].func(parse);
+	return;
 	}
+	}
+	pi = fork();
+	if (pi == 0)
+	{
+        execvp(parse[0], parse);
+        perror("Error");
+        exit(1);
+    }
 	else
-		perror("Error:");
-
-	return (0);
+	if (pi > 0)
+	{
+        do {
+        	waitpid(pi, &status, WUNTRACED);
+        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+    }
+	else
+	{
+        perror("error");
+    }
 }

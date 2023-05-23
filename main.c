@@ -1,44 +1,33 @@
 #include "main.h"
+
 /**
- * main - the main function
- * @argc: number of arguments passed witn hsh
- * @argv: arguments passed == tokens pointer
- * @environ: valiable (global)
- * Return: zero is returned on success
+ * main - the start of the shell program
+ * Return: returns 0 on success
  */
-
-int main(int argc, char **argv, char **environ)
+int main()
 {
-	char *line_input;
-	char *del;
-	char **path;
-	char *com;
-	char *pdel;
+    char *line_input;
+    char **t;
+    char *tok_del;
 
-	pdel = ":";
-	path = path_finder(pdel, environ);
-	signal(SIGINT, SIG_IGN);
 
-	(void)argc;
-	del = " \t\r\n";
-	line_input = NULL;
-	do {
-		_putchar('-');
-		_putchar('$');
-		_putchar(' ');
-		line_input = readinput();
+    tok_del = " \t\r\n";
+    while (1)
+    {
+        _putchar('$');
+        _putchar(' ');
 
-		argv = token(del, line_input);
-		com = arg_path_finder(argv, path);
+        line_input = read_line();
+        t = _tokenize(tok_del, line_input);
 
-		if (com == NULL)
-		{
-		_exec(argv);
-		}
-		free(line_input);
-		free(argv);
-		free(com);
-	} while (1);
+        if (t[0] != NULL)
+	    {
+		    _exec(t);
+	    }
 
-	return (0);
+	    free(t);
+	    free(line_input);
+	}
+ 
+    return (0);
 }
