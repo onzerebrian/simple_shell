@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdio.h>   // For standard input/output functions
+#include <string.h>  // For string functions
+
 /**
  * check_delim - Checks If A Character Match Any Char *
  * @c: Character To Check
@@ -18,7 +21,7 @@ unsigned int check_delim(char c, const char *str)
 }
 
 /**
- * _strtok - Token A String Into Token (strtrok)
+ * _strtok - Tokenize A String Into Token (strtrok)
  * @str: String
  * @delim: Delimiter
  * Return: Pointer To The Next Token Or NULL
