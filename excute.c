@@ -66,7 +66,7 @@ int check_cmd(char **cmd, char *input, int c, char **argv)
 			print_error(cmd[0], c, argv);
 			free(input);
 			free(cmd);
-			_exit(EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		return (EXIT_SUCCESS);
 	}
@@ -82,6 +82,6 @@ void signal_to_handel(int sig)
 {
 	if (sig == SIGINT)
 	{
-		printf("\n$ ");
+		PRINTER("\n$ ");
 	}
 }
