@@ -4,7 +4,3 @@ exit: exit [n]
     Exits the shell with a status of N.  If N is omitted, the exit status
     is that of the last command executed.
     
-   Examples:
-    exit 0    # Exits the shell with a status of 0
-    exit 1    # Exits the shell with a status of 1
-    exit      # Exits the shell with the status of the last command executed 
