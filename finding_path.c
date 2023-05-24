@@ -17,7 +17,6 @@ int path_cmd(char **cmd)
 		cmd_path = build(*cmd, value);
 		if (stat(cmd_path, &buf) == 0)
 		{
-			free(*cmd);
 			*cmd = _strdup(cmd_path);
 			free(cmd_path);
 			free(path);
@@ -75,7 +74,7 @@ char *_getenv(char *name)
 		if (_strncmp(name, environ[i], nl) == 0)
 		{
 			vl = _strlen(environ[i]) - nl;
-			value = malloc(sizeof(char) * (vl + 1));
+			value = malloc(sizeof(char) * vl );
 			if (!value)
 			{
 				free(value);
