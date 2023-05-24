@@ -44,7 +44,7 @@ void  exit_bul(char **cmd, char *input, char **argv, int c)
 int change_dir(char **cmd, __attribute__((unused))int er)
 {
 	int value = -1;
-	char cwd[PATH_MAX];
+	char cmd[PATH_MAX];
 
 	if (cmd[1] == NULL)
 		value = chdir(getenv("HOME"));
@@ -62,9 +62,9 @@ int change_dir(char **cmd, __attribute__((unused))int er)
 	}
 	else if (value != -1)
 	{
-		getcwd(cwd, sizeof(cwd));
+		getcmd(cmd, sizeof(cmd));
 		setenv("OLDPWD", getenv("PWD"), 1);
-		setenv("PWD", cwd, 1);
+		setenv("PWD", cmd, 1);
 	}
 	return (0);
 }
