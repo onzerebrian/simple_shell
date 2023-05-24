@@ -1,5 +1,8 @@
 cd: cd [-L|[-P [-e]] [-@]] [dir]
     Change the shell working directory.
+    The cd command is a built-in shell command that allows you to change
+    the current working directory in a Unix-like operating system.
+    The cd command can be used with or without options to modify its behavior.
 
     Change the current directory to DIR.  The default DIR is the value of the
     HOME shell variable.
