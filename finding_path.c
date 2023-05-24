@@ -45,7 +45,6 @@ char *build(char *token, char *value)
 	cmd = malloc(sizeof(char) * len);
 	if (cmd == NULL)
 	{
-		perror("Unable to allocate memory");
 		return (NULL);
 	}
 
