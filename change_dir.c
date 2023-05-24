@@ -62,9 +62,9 @@ int change_dir(char **cmd, __attribute__((unused))int er)
 	}
 	else if (value != -1)
 	{
-		getcmd(cmd, sizeof(cmd));
+		getcwd(cwd, sizeof(cwd));
 		setenv("OLDPWD", getenv("PWD"), 1);
-		setenv("PWD", cmd, 1);
+		setenv("PWD", cwd, 1);
 	}
 	return (0);
 }
