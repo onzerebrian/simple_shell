@@ -18,12 +18,9 @@ void print_error(char *input, int counter, char **argv)
 {
 	char *er;
 
-	PRINTER(argv[0]);
-	PRINTER(": ");
+	(void)argv;
 	er = _itoa(counter);
-	PRINTER(er);
 	free(er);
-	PRINTER(": ");
 	PRINTER(input);
-	PRINTER(": not found\n");
+	PRINTER(": No such file or directory\n");
 }
