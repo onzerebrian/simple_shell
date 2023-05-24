@@ -32,3 +32,11 @@ echo: echo [-neE] [arg ...]
 
     Exit Status:
     Returns success unless a write error occurs.
+    
+    Additional Information:
+The `echo` command is commonly used in shell scripts and command-line interfaces 
+to display messages or variable values. It is a simple and convenient way to 
+provide output to the user or to redirect it to a file for further processing.
+By using the various backslash escapes, you can control the formatting and 
+special characters in the output. Remember to be cautious when interpreting user
+input with the `-e` option to avoid potential security vulnerabilities.
