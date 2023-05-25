@@ -12,12 +12,11 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * _strncpy - copies a string
- * @dest: Destination buffer
- * @src: Source string
- * @n: Maximum number of characters to copy
- * 
- * Return: Pointer to the destination buffer
+ * _strncpy - copie a string
+ * @dest:char
+ *  @src:char
+ * @n:int
+ * Return:char
  */
 
 char *_strncpy(char *dest, char *src, int n)
@@ -40,8 +39,8 @@ i = 0;
 
 /**
  * _strlen - lenght of string
- * @s:char Input string
- * Return:int Length of the string
+ * @s:char
+ * Return:int
  */
 
 int _strlen(char *s)
@@ -56,9 +55,9 @@ return (i);
 }
 
 /**
- * _atoi - convert string to a int
+ * _atoi - convert to a int
  * @s:string
- * Return converted integer
+ * Return:int
  */
 int _atoi(char *s)
 {
