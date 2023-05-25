@@ -32,4 +32,3 @@ echo: echo [-neE] [arg ...]
 
     Exit Status:
     Returns success unless a write error occurs.
-    
